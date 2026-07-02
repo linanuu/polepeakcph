@@ -1,0 +1,518 @@
+/* =========================================================
+   Pole Peak — Copenhagen Homepage
+   Bright Botanical identity: forest green, wood, cream, sage, gold
+   Fonts loaded via <link> in <head>, not here.
+   ========================================================= */
+
+:root {
+  --forest: #2F4A22;
+  --forest-deep: #1F3316;
+  --paper: #F7F3EA;
+  --cream: #FBF8F2;
+  --wood: #8B5E3C;
+  --wood-deep: #6B4226;
+  --sage: #9CAF88;
+  --sage-soft: #E4EADD;
+  --gold: #C9A227;
+  --ink: #22301C;
+  --ink-soft: #4A5A40;
+  --line: rgba(34, 48, 28, 0.12);
+  --radius: 3px;
+  --shadow-soft: 0 12px 32px rgba(31, 51, 22, 0.10);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 88px;
+}
+
+h1, h2, h3, .display {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  color: var(--forest-deep);
+  margin: 0;
+  line-height: 1.12;
+}
+
+.italic-accent {
+  font-style: italic;
+  font-weight: 500;
+}
+
+p { margin: 0 0 1em; color: var(--ink-soft); }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wood-deep);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(247, 243, 234, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--forest-deep);
+}
+
+.nav-brand svg { width: 30px; height: 30px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.lang-toggle {
+  display: flex;
+  border: 1px solid var(--forest);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lang-toggle a {
+  padding: 7px 12px;
+  color: var(--forest);
+}
+
+.lang-toggle a.active {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.nav-cta {
+  padding: 10px 20px;
+  border: 1px solid var(--forest);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--forest-deep);
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.nav-cta:hover { background: var(--forest); color: var(--cream); }
+
+.nav-toggle { display: none; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 30px;
+  border-radius: var(--radius);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.btn-primary:hover { background: var(--forest-deep); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--forest);
+  color: var(--forest-deep);
+}
+
+.btn-outline:hover { background: var(--forest); color: var(--cream); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 88px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin: 18px 0 22px;
+}
+
+.hero-copy p.lead {
+  font-size: 1.12rem;
+  max-width: 46ch;
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-note {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.hero-art {
+  position: relative;
+}
+
+.hero-art svg { width: 100%; height: auto; }
+
+/* ---------- Trail / classes section ---------- */
+.trail {
+  padding: 96px 0;
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  max-width: 640px;
+  margin: 0 0 56px;
+}
+
+.section-head h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-top: 14px;
+}
+
+.waypoints {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  counter-reset: waypoint;
+}
+
+.waypoint {
+  padding: 30px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  position: relative;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.waypoint.is-visible { opacity: 1; transform: translateY(0); }
+
+.waypoint-index {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.waypoint h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.waypoint p { font-size: 0.92rem; margin: 0; }
+
+/* ---------- Membership ---------- */
+.membership {
+  padding: 96px 0;
+}
+
+.membership-card {
+  background: var(--forest-deep);
+  color: var(--cream);
+  border-radius: var(--radius);
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.membership-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 15%, rgba(201, 162, 39, 0.16), transparent 55%);
+  pointer-events: none;
+}
+
+.membership-card h2 {
+  color: var(--cream);
+  font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+  margin-bottom: 18px;
+}
+
+.membership-card p {
+  color: rgba(251, 248, 242, 0.82);
+}
+
+.membership-list {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.membership-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: rgba(251, 248, 242, 0.92);
+}
+
+.membership-list svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  color: var(--gold);
+}
+
+/* ---------- Signup ---------- */
+.signup {
+  padding: 96px 0 120px;
+  background: var(--sage-soft);
+}
+
+.signup-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.signup h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); margin-bottom: 16px; }
+
+.signup p.lead {
+  max-width: 46ch;
+  margin: 0 auto 34px;
+}
+
+.signup-form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.signup-form input[type="email"] {
+  flex: 1 1 280px;
+  max-width: 340px;
+  padding: 15px 18px;
+  border: 1px solid var(--forest);
+  border-radius: var(--radius);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.signup-form input[type="email"]:focus,
+.nav-links a:focus-visible,
+.btn:focus-visible,
+.lang-toggle a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.signup-note {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.signup-confirm {
+  display: none;
+  padding: 22px 26px;
+  background: var(--forest);
+  color: var(--cream);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+}
+
+.signup-confirm.is-visible { display: block; }
+
+.honeypot { position: absolute; left: -9999px; }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--forest-deep);
+}
+
+.footer-links {
+  display: flex;
+  gap: 26px;
+  font-size: 0.88rem;
+}
+
+.footer-meta {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .waypoint {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .btn:hover, .nav-cta:hover { transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-art { order: -1; max-width: 420px; margin: 0 auto; }
+  .waypoints { grid-template-columns: repeat(2, 1fr); }
+  .membership-card { grid-template-columns: 1fr; padding: 40px; }
+}
+
+@media (max-width: 720px) {
+  body { padding-top: 72px; }
+  .nav-inner { height: 72px; }
+  .nav-links, .nav-location { display: none; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .container { padding: 0 22px; }
+  .waypoints { grid-template-columns: 1fr; }
+  .signup-form { flex-direction: column; align-items: stretch; }
+  .signup-form input[type="email"] { max-width: none; }
+}
