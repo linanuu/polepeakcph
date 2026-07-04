@@ -1,0 +1,376 @@
+/* ==========================================================================
+   style-posts.css
+   Dedicated stylesheet for Pole Peak Copenhagen blog articles.
+   Separate from site.css (used on marketing pages) — this one is tuned
+   for long-form reading rather than landing-page layout.
+   Palette + type stay in the Bright Botanical family, but the post
+   template gets its own signature: a botanical divider motif and a
+   dropped initial on every article opener.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600&display=swap');
+
+:root {
+  /* Core palette — shared family with the main site, retuned for reading */
+  --post-forest: #1f3a2e;
+  --post-forest-deep: #13261d;
+  --post-ink: #262b22;
+  --post-cream: #faf6ec;
+  --post-cream-warm: #f3ecdc;
+  --post-sage: #97a888;
+  --post-sage-soft: #e4e9dc;
+  --post-gold: #c19a49;
+  --post-gold-soft: #e8d9b0;
+  --post-wood: #8a6a4d;
+
+  /* Type */
+  --post-font-display: 'Fraunces', 'Georgia', serif;
+  --post-font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Rhythm */
+  --post-measure: 42rem;
+  --post-radius: 4px;
+}
+
+/* --------------------------------------------------------------------- */
+/* Reset (scoped, minimal)                                               */
+/* --------------------------------------------------------------------- */
+
+.post-page * {
+  box-sizing: border-box;
+}
+
+.post-page {
+  margin: 0;
+  background: var(--post-cream);
+  color: var(--post-ink);
+  font-family: var(--post-font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.post-page img {
+  max-width: 100%;
+  display: block;
+}
+
+.post-page a {
+  color: var(--post-forest);
+  text-decoration-color: var(--post-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.post-page a:hover {
+  color: var(--post-gold);
+}
+
+/* --------------------------------------------------------------------- */
+/* Top bar — minimal, gets out of the way of reading                     */
+/* --------------------------------------------------------------------- */
+
+.post-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--post-measure);
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 0;
+}
+
+.post-topbar__brand {
+  font-family: var(--post-font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--post-forest);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.post-topbar__back {
+  font-size: 0.85rem;
+  color: var(--post-wood);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.post-topbar__back:hover {
+  color: var(--post-forest);
+  border-bottom-color: var(--post-gold);
+}
+
+/* --------------------------------------------------------------------- */
+/* Article header                                                        */
+/* --------------------------------------------------------------------- */
+
+.post-header {
+  max-width: var(--post-measure);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.25rem;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.post-category {
+  display: inline-block;
+  font-family: var(--post-font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--post-forest-deep);
+  background: var(--post-sage-soft);
+  border: 1px solid var(--post-sage);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.post-date,
+.post-readtime {
+  font-size: 0.8rem;
+  color: var(--post-wood);
+}
+
+.post-dot {
+  color: var(--post-sage);
+}
+
+.post-title {
+  font-family: var(--post-font-display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  line-height: 1.08;
+  color: var(--post-forest-deep);
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.post-excerpt {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--post-ink);
+  opacity: 0.82;
+  margin: 0;
+  max-width: 40ch;
+}
+
+/* --------------------------------------------------------------------- */
+/* Hero image                                                            */
+/* --------------------------------------------------------------------- */
+
+.post-hero-image {
+  max-width: var(--post-measure);
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.post-hero-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--post-radius);
+}
+
+/* --------------------------------------------------------------------- */
+/* Signature: botanical divider                                          */
+/* Used to open the body and to separate major sections                  */
+/* --------------------------------------------------------------------- */
+
+.post-divider {
+  max-width: var(--post-measure);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.post-divider svg {
+  width: 100%;
+  height: 20px;
+  display: block;
+}
+
+.post-divider .leaf-line {
+  stroke: var(--post-sage);
+  stroke-width: 1;
+}
+
+.post-divider .leaf-shape {
+  fill: var(--post-gold);
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------- */
+/* Article body                                                          */
+/* --------------------------------------------------------------------- */
+
+.post-body {
+  max-width: var(--post-measure);
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem 1rem;
+}
+
+.post-body h2 {
+  font-family: var(--post-font-display);
+  font-weight: 600;
+  font-size: 1.55rem;
+  color: var(--post-forest);
+  margin: 2.75rem 0 1rem;
+  letter-spacing: -0.005em;
+}
+
+.post-body p {
+  margin: 0 0 1.4rem;
+}
+
+/* Dropped initial on the very first paragraph of the article */
+.post-body > p:first-of-type::first-letter {
+  font-family: var(--post-font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 4.2rem;
+  line-height: 0.78;
+  float: left;
+  padding: 0.1rem 0.55rem 0 0.05rem;
+  color: var(--post-gold);
+}
+
+.post-pullquote {
+  font-family: var(--post-font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--post-forest-deep);
+  border-left: 3px solid var(--post-gold);
+  padding: 0.2rem 0 0.2rem 1.5rem;
+  margin: 2.25rem 0 2.5rem;
+}
+
+.post-body strong {
+  color: var(--post-forest-deep);
+  font-weight: 600;
+}
+
+.post-body em {
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------- */
+/* Closing CTA box                                                       */
+/* --------------------------------------------------------------------- */
+
+.post-cta {
+  max-width: var(--post-measure);
+  margin: 2.5rem auto 0;
+  padding: 1.75rem 1.5rem;
+  background: var(--post-cream-warm);
+  border: 1px solid var(--post-gold-soft);
+  border-radius: var(--post-radius);
+}
+
+.post-cta p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--post-ink);
+}
+
+.post-cta strong {
+  color: var(--post-forest-deep);
+}
+
+/* --------------------------------------------------------------------- */
+/* Footer nav                                                             */
+/* --------------------------------------------------------------------- */
+
+.post-footer-nav {
+  max-width: var(--post-measure);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--post-sage-soft);
+  margin-top: 2rem;
+}
+
+.post-footer-nav a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--post-forest);
+}
+
+.post-footer-nav a:hover {
+  color: var(--post-gold);
+}
+
+.post-lang-switch {
+  font-size: 0.85rem;
+  color: var(--post-wood);
+}
+
+/* --------------------------------------------------------------------- */
+/* Motion (respectful, minimal)                                          */
+/* --------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .post-header,
+  .post-body {
+    animation: post-fade-up 0.5s ease both;
+  }
+
+  .post-body {
+    animation-delay: 0.05s;
+  }
+}
+
+@keyframes post-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-header,
+  .post-body {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------------- */
+/* Responsive                                                             */
+/* --------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .post-title {
+    font-size: 2rem;
+  }
+
+  .post-body > p:first-of-type::first-letter {
+    font-size: 3.4rem;
+  }
+
+  .post-pullquote {
+    font-size: 1.25rem;
+  }
+}
+
+/* --------------------------------------------------------------------- */
+/* Focus visibility                                                       */
+/* --------------------------------------------------------------------- */
+
+.post-page a:focus-visible {
+  outline: 2px solid var(--post-forest);
+  outline-offset: 2px;
+}
