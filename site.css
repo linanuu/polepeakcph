@@ -260,8 +260,15 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 
-.hero-art img { width: 100%; height: auto; display: block; border-radius: 12px; }
-.hero-art { order: -1; max-width: 420px; margin: 0 auto; }
+.hero-art img {
+  width: 100%;
+  aspect-ratio: 8 / 7;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-radius: 12px;
+}
+.hero-art { order: -1; max-width: 420px; margin: 0 auto; aspect-ratio: 8 / 7; overflow: hidden; }
 
 /* ---------- Trail / classes section ---------- */
 .trail {
