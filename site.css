@@ -260,7 +260,8 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 
-.hero-art svg { width: 100%; height: auto; }
+.hero-art img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.hero-art { order: -1; max-width: 420px; margin: 0 auto; }
 
 /* ---------- Trail / classes section ---------- */
 .trail {
