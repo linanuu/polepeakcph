@@ -258,13 +258,19 @@ img { max-width: 100%; display: block; }
 
 .hero-art {
   position: relative;
+  align-self: start;
+  margin-top: 8px;
+  max-width: 420px;
 }
 
-.hero-art {
-  position: relative;
-  align-self: start;
-  margin-top: 8px; /* tweak until it visually lines up with the eyebrow line */
+.hero-art img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
+
 /* ---------- Trail / classes section ---------- */
 .trail {
   padding: 96px 0;
@@ -649,7 +655,6 @@ img { max-width: 100%; display: block; }
   .waypoints { grid-template-columns: repeat(2, 1fr); }
   .membership-card { grid-template-columns: 1fr; padding: 40px; }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
-   
 }
 
 @media (max-width: 720px) {
