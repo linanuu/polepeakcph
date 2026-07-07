@@ -221,7 +221,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 88px 0 64px;
+  padding: 40px 0 64px;
   position: relative;
   overflow: hidden;
 }
