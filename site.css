@@ -260,13 +260,10 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 
-.hero-art img {
-  width: 100%;
-  max-width: 480px;
-  aspect-ratio: 4 / 5;
-  object-fit: contain;
-  object-position: center;
-  display: block;
+.hero-art {
+  position: relative;
+  align-self: start;
+  margin-top: 8px; /* tweak until it visually lines up with the eyebrow line */
 }
 .hero-art { order: -1; max-width: 320px; margin: 0 auto; aspect-ratio: 4 / 5; }
 /* ---------- Trail / classes section ---------- */
