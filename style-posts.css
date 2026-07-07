@@ -374,3 +374,191 @@
   outline: 2px solid var(--post-forest);
   outline-offset: 2px;
 }
+
+/* --------------------------------------------------------------------- */
+/* Lists                                                                  */
+/* --------------------------------------------------------------------- */
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 1.4rem;
+  padding-left: 1.35rem;
+}
+
+.post-body li {
+  margin-bottom: 0.55rem;
+}
+
+.post-body li strong {
+  color: var(--post-forest-deep);
+}
+
+/* --------------------------------------------------------------------- */
+/* Interactive exercise browser                                          */
+/* --------------------------------------------------------------------- */
+
+.exercise-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2.25rem;
+}
+
+.exercise-filter-chip {
+  font-family: var(--post-font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid var(--post-sage);
+  background: transparent;
+  color: var(--post-forest-deep);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.exercise-filter-chip:hover {
+  border-color: var(--post-gold);
+}
+
+.exercise-filter-chip.active {
+  background: var(--post-forest);
+  border-color: var(--post-forest);
+  color: var(--post-cream);
+}
+
+.exercise-section {
+  margin-bottom: 2.25rem;
+}
+
+.exercise-section.is-empty {
+  display: none;
+}
+
+.exercise-section-title {
+  font-family: var(--post-font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--post-forest);
+  margin: 0 0 0.9rem;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 0.9rem;
+}
+
+.exercise-card {
+  background: var(--post-cream-warm);
+  border: 1px solid var(--post-sage-soft);
+  border-radius: var(--post-radius);
+  padding: 1rem 1.1rem;
+}
+
+.exercise-card.is-hidden {
+  display: none;
+}
+
+.exercise-card h4 {
+  font-family: var(--post-font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--post-forest-deep);
+  margin: 0 0 0.4rem;
+}
+
+.exercise-card p {
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: var(--post-ink);
+  opacity: 0.85;
+  margin: 0 0 0.65rem;
+}
+
+.exercise-level {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+}
+
+.exercise-level[data-level="beginner"] {
+  background: var(--post-sage-soft);
+  color: var(--post-forest-deep);
+}
+
+.exercise-level[data-level="intermediate"] {
+  background: var(--post-gold-soft);
+  color: var(--post-forest-deep);
+}
+
+.exercise-level[data-level="advanced"] {
+  background: var(--post-forest);
+  color: var(--post-cream);
+}
+
+/* --------------------------------------------------------------------- */
+/* PDF download callout                                                  */
+/* --------------------------------------------------------------------- */
+
+.post-download {
+  max-width: var(--post-measure);
+  margin: 2.5rem auto;
+  padding: 1.85rem 1.75rem;
+  background: var(--post-forest);
+  border-radius: var(--post-radius);
+  color: var(--post-cream);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.post-download-text h3 {
+  font-family: var(--post-font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 0.35rem;
+  color: var(--post-cream);
+}
+
+.post-download-text p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--post-cream);
+  opacity: 0.82;
+}
+
+.post-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--post-gold);
+  color: var(--post-forest-deep);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.post-download-btn:hover {
+  background: #d4ac5c;
+  color: var(--post-forest-deep);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .post-download {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
