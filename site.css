@@ -265,7 +265,6 @@ img { max-width: 100%; display: block; }
   align-self: start;
   margin-top: 8px; /* tweak until it visually lines up with the eyebrow line */
 }
-.hero-art { order: -1; max-width: 320px; margin: 0 auto; aspect-ratio: 4 / 5; }
 /* ---------- Trail / classes section ---------- */
 .trail {
   padding: 96px 0;
@@ -646,10 +645,11 @@ img { max-width: 100%; display: block; }
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-art { order: -1; max-width: 420px; margin: 0 auto; }
+  .hero-art { order: -1; max-width: 420px; margin: 0 auto; aspect-ratio: 4 / 5;}
   .waypoints { grid-template-columns: repeat(2, 1fr); }
   .membership-card { grid-template-columns: 1fr; padding: 40px; }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
+   
 }
 
 @media (max-width: 720px) {
