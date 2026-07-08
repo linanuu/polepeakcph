@@ -230,7 +230,9 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 56px;
-  align-items: start;
+  align-items: start; /* was: center — was causing the shorter text column to be
+                          vertically centered against the taller image column,
+                          leaving dead space above/below the text */
 }
 
 .hero-copy h1 {
@@ -261,14 +263,23 @@ img { max-width: 100%; display: block; }
   align-self: start;
   margin-top: 8px;
   max-width: 420px;
+  overflow: hidden; /* needed so the zoomed/shifted image below gets clipped
+                        to this box instead of spilling out */
 }
 
 .hero-art img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: contain;
-  object-position: start;
+  object-position: center;
   display: block;
+  /* The source PNG has a chunk of transparent space above the illustration
+     itself, so even with correct box alignment the dancer appeared too low.
+     Scale up and shift up to crop that empty space out.
+     Tune these two values against the actual asset if the framing looks off —
+     increase scale to zoom in further, adjust translateY to shift up/down. */
+  transform: scale(1.32) translateY(-9%);
+  transform-origin: center top;
 }
 
 /* ---------- Trail / classes section ---------- */
