@@ -941,3 +941,70 @@ body.js-ready .trailmap-panel-wrap:not(.is-active) {
   .trailmap-panel { padding: 0 18px 20px 62px; }
   .hero-visual { max-width: 320px; }
 }
+
+/* =========================================================
+   Homepage v2 — mobile menu + image hardening fixes
+   Appended only. Nothing above this line has been modified.
+   ========================================================= */
+
+/* Mobile hamburger now actually opens the nav links as a dropdown */
+@media (max-width: 720px) {
+  .nav { position: fixed; }
+
+  .nav-toggle {
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-toggle .icon-close { display: none; }
+  .nav.is-open .nav-toggle .icon-open { display: none; }
+  .nav.is-open .nav-toggle .icon-close { display: block; }
+
+  .nav.is-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    padding: 12px 22px 24px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .nav.is-open .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.02rem;
+  }
+
+  .nav.is-open .nav-links a:last-of-type { border-bottom: none; }
+
+  .nav.is-open .nav-location {
+    display: flex;
+    margin-top: 6px;
+    width: fit-content;
+  }
+}
+
+/* Hero image: explicit sizing so it can never collapse to zero height,
+   independent of grid/flex context on any screen size. */
+.hero-visual {
+  width: 100%;
+}
+
+.hero-visual .hero-art {
+  width: 100%;
+}
+
+.hero-visual .hero-art img {
+  min-height: 240px;
+}
+
+@media (max-width: 480px) {
+  .hero-visual .hero-art img { min-height: 200px; }
+}
