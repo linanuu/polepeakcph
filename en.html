@@ -54,6 +54,8 @@
 </head>
 <body>
 
+<div class="scroll-progress" aria-hidden="true"></div>
+
 <nav class="nav">
   <div class="container nav-inner">
     <a href="/en" class="nav-brand" aria-label="Pole Peak home">
@@ -101,21 +103,23 @@
           <a href="#trail" class="btn btn-outline">See the classes</a>
         </div>
         <p class="hero-note">No spam — just an email when we have news on location, pricing and offering.</p>
+        <a href="#trail" class="hero-scrollcue" aria-label="Scroll to the classes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+        </a>
       </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 360 L90 200 L150 280 L220 140 L300 260 L360 190 L480 360 Z" fill="#E4EADD"/>
-          <path d="M60 360 L160 170 L230 260 L300 120 L400 300 L480 240 L480 360 Z" fill="#9CAF88" opacity="0.7"/>
-          <path d="M300 120 L340 60 L380 120 Z" fill="#2F4A22"/>
-          <circle cx="340" cy="45" r="5" fill="#C9A227"/>
-          <path d="M110 340 C 150 260, 190 300, 230 220 C 260 160, 300 200, 340 90" stroke="#6B4226" stroke-width="2" stroke-dasharray="2 8" fill="none" stroke-linecap="round"/>
-          <circle cx="118" cy="332" r="6" fill="#8B5E3C"/>
-          <circle cx="205" cy="255" r="6" fill="#8B5E3C"/>
-          <circle cx="255" cy="185" r="6" fill="#8B5E3C"/>
-          <circle cx="320" cy="120" r="6" fill="#8B5E3C"/>
-          <rect x="0" y="360" width="480" height="60" fill="#F7F3EA"/>
-        </svg>
+      <div class="hero-visual">
+        <div class="hero-orbit" aria-hidden="true">
+          <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="230" cy="230" r="212" fill="none" style="stroke:var(--wood-deep)" stroke-width="1.4" stroke-dasharray="2 11" stroke-linecap="round" opacity="0.45"/>
+            <circle cx="230" cy="16" r="5" style="fill:var(--gold)"/>
+            <circle cx="442" cy="230" r="4" style="fill:var(--wood)"/>
+            <circle cx="230" cy="444" r="4" style="fill:var(--sage)"/>
+          </svg>
+        </div>
+        <div class="hero-art">
+          <img src="/images/pole-banner.png" alt="Illustration of a pole dancer, Pole Peak Copenhagen" width="1080" height="1350" loading="eager" fetchpriority="high">
+        </div>
       </div>
     </div>
   </section>
@@ -129,27 +133,72 @@
         <p>A new way of training based in Copenhagen. For dancers, athletes and anyone curious to try something new.</p>
       </div>
 
-      <div class="waypoints">
-        <article class="waypoint">
-          <span class="waypoint-index">Trail 1</span>
-          <h3>Pole dance classes</h3>
-          <p>Drop in — technique, spins and foundational tricks — built from the ground up with a focus on safe progression.</p>
-        </article>
-        <article class="waypoint">
-          <span class="waypoint-index">Trail 2</span>
-          <h3>Choreo classes</h3>
-          <p>Flow, musicality, sexy — you name it. A closed group class where you learn choreos inside out in the span of a few weeks.</p>
-        </article>
-        <article class="waypoint">
-          <span class="waypoint-index">Trail 3</span>
-          <h3>Calisthenics classes</h3>
-          <p>Bodyweight training that builds the raw strength carrying you through everything else.</p>
-        </article>
-        <article class="waypoint">
-          <span class="waypoint-index">Trail 4</span>
-          <h3>Flexibility classes</h3>
-          <p>Mobility and range of motion, so your body can keep up with where the strength takes you and you can achieve the shapes you dream of.</p>
-        </article>
+      <div class="trailmap reveal">
+        <div class="trailmap-items">
+          <article class="trailmap-item is-active">
+            <button class="trailmap-toggle" aria-expanded="true" aria-controls="trail-panel-1">
+              <span class="trailmap-marker">1</span>
+              <span class="trailmap-toggle-text">
+                <span class="trailmap-label">Trail 1</span>
+                <h3>Pole dance classes</h3>
+              </span>
+              <svg class="trailmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="trailmap-panel-wrap is-active">
+              <div class="trailmap-panel-inner">
+                <p class="trailmap-panel" id="trail-panel-1">Drop in — technique, spins and foundational tricks — built from the ground up with a focus on safe progression.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="trailmap-item">
+            <button class="trailmap-toggle" aria-expanded="false" aria-controls="trail-panel-2">
+              <span class="trailmap-marker">2</span>
+              <span class="trailmap-toggle-text">
+                <span class="trailmap-label">Trail 2</span>
+                <h3>Choreo classes</h3>
+              </span>
+              <svg class="trailmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="trailmap-panel-wrap">
+              <div class="trailmap-panel-inner">
+                <p class="trailmap-panel" id="trail-panel-2">Flow, musicality, sexy — you name it. A closed group class where you learn choreos inside out in the span of a few weeks.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="trailmap-item">
+            <button class="trailmap-toggle" aria-expanded="false" aria-controls="trail-panel-3">
+              <span class="trailmap-marker">3</span>
+              <span class="trailmap-toggle-text">
+                <span class="trailmap-label">Trail 3</span>
+                <h3>Calisthenics classes</h3>
+              </span>
+              <svg class="trailmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="trailmap-panel-wrap">
+              <div class="trailmap-panel-inner">
+                <p class="trailmap-panel" id="trail-panel-3">Bodyweight training that builds the raw strength carrying you through everything else.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="trailmap-item">
+            <button class="trailmap-toggle" aria-expanded="false" aria-controls="trail-panel-4">
+              <span class="trailmap-marker">4</span>
+              <span class="trailmap-toggle-text">
+                <span class="trailmap-label">Trail 4</span>
+                <h3>Flexibility classes</h3>
+              </span>
+              <svg class="trailmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="trailmap-panel-wrap">
+              <div class="trailmap-panel-inner">
+                <p class="trailmap-panel" id="trail-panel-4">Mobility and range of motion, so your body can keep up with where the strength takes you and you can achieve the shapes you dream of.</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -215,8 +264,22 @@
 </footer>
 
 <script>
+  document.body.classList.add('js-ready');
+
+  // Scroll progress bar
+  const scrollBar = document.querySelector('.scroll-progress');
+  function updateScrollProgress() {
+    if (!scrollBar) return;
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    scrollBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
   // Reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal, .waypoint');
+  const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -230,6 +293,54 @@
   } else {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
+
+  // Hero visual — subtle pointer parallax tilt
+  const heroVisual = document.querySelector('.hero-visual');
+  const heroArt = heroVisual ? heroVisual.querySelector('.hero-art') : null;
+  if (heroVisual && heroArt && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVisual.addEventListener('mousemove', (e) => {
+      const rect = heroVisual.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      heroArt.style.transform = `rotateY(${px * 9}deg) rotateX(${py * -9}deg)`;
+    });
+    heroVisual.addEventListener('mouseleave', () => {
+      heroArt.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  }
+
+  // Membership card — cursor spotlight
+  const membershipCard = document.querySelector('.membership-card');
+  if (membershipCard && window.matchMedia('(pointer: fine)').matches) {
+    membershipCard.classList.add('has-spotlight');
+    membershipCard.addEventListener('mousemove', (e) => {
+      const rect = membershipCard.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      membershipCard.style.setProperty('--spot-x', x + '%');
+      membershipCard.style.setProperty('--spot-y', y + '%');
+    });
+  }
+
+  // Trailmap — accordion
+  const trailItems = document.querySelectorAll('.trailmap-item');
+  trailItems.forEach(item => {
+    const toggle = item.querySelector('.trailmap-toggle');
+    const wrap = item.querySelector('.trailmap-panel-wrap');
+    toggle.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-active');
+      trailItems.forEach(other => {
+        other.classList.remove('is-active');
+        other.querySelector('.trailmap-toggle').setAttribute('aria-expanded', 'false');
+        other.querySelector('.trailmap-panel-wrap').classList.remove('is-active');
+      });
+      if (willOpen) {
+        item.classList.add('is-active');
+        toggle.setAttribute('aria-expanded', 'true');
+        wrap.classList.add('is-active');
+      }
+    });
+  });
 
   // Signup form — submit to Netlify without leaving the page
   const form = document.getElementById('signupForm');
