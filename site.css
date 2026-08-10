@@ -1025,3 +1025,101 @@ body.js-ready .trailmap-panel-wrap:not(.is-active) {
 .hero-inner.no-visual .hero-actions {
   justify-content: center;
 }
+
+/* ---------- Hero: centered signature redesign (topographic contours) ---------- */
+.hero.hero-centered {
+  padding: 128px 0 132px;
+}
+
+.hero-contours {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1360px;
+  max-width: none;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-centered .hero-inner.no-visual {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero-centered .hero-copy .eyebrow-center {
+  justify-content: center;
+}
+
+.hero-centered .hero-copy .eyebrow-center::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-centered .hero-copy h1 {
+  margin: 30px 0 28px;
+  font-size: clamp(2.5rem, 5.2vw, 3.9rem);
+  letter-spacing: -0.01em;
+}
+
+.hero-centered .hero-copy p.lead {
+  margin: 0 auto 42px;
+  font-size: 1.16rem;
+  line-height: 1.75;
+  max-width: 42ch;
+}
+
+.hero-centered .hero-actions {
+  margin-bottom: 22px;
+}
+
+.hero-centered .hero-note {
+  margin-bottom: 58px;
+}
+
+.hero-centered .hero-scrollcue {
+  margin: 0 auto;
+}
+
+/* Staged entrance on load — hero sits above the fold, so this plays immediately
+   rather than on scroll (the .reveal/IntersectionObserver pattern used elsewhere) */
+.hero-centered .hero-copy > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroRise 0.8s var(--ease) forwards;
+}
+
+.hero-centered .hero-copy > .eyebrow-center { animation-delay: 0.05s; }
+.hero-centered .hero-copy > h1 { animation-delay: 0.16s; }
+.hero-centered .hero-copy > p.lead { animation-delay: 0.28s; }
+.hero-centered .hero-copy > .hero-actions { animation-delay: 0.40s; }
+.hero-centered .hero-copy > p.hero-note { animation-delay: 0.50s; }
+.hero-centered .hero-copy > .hero-scrollcue { animation-delay: 0.60s; }
+
+@keyframes heroRise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-centered .hero-copy > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero.hero-centered { padding: 96px 0 88px; }
+  .hero-contours { width: 900px; }
+  .hero-centered .hero-copy h1 { margin: 22px 0 20px; }
+  .hero-centered .hero-copy p.lead { margin-bottom: 32px; }
+  .hero-centered .hero-note { margin-bottom: 40px; }
+}
+
+@media (max-width: 480px) {
+  .hero-contours { width: 680px; }
+}
